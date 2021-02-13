@@ -10,8 +10,8 @@ jobs:
             sudo apt-get update
             sudo apt intall python3-pip
             sudo pip3 install awsebcli --upgrade
-        -run cd ./app
-        -run aws s3 sync ./app s3://varminex.com
+        -run: cd ./app
+        -run: aws s3 sync ./app s3://varminex.com
    
    workflows:
     version:2
