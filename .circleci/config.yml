@@ -1,0 +1,20 @@
+jobs:
+   build_deploy:
+    machine:
+    image:ubuntu-2004:202010-01
+   steps:
+    - checkout
+    - run
+        -name: Copy code
+        -command: |
+            sudo apt-get update
+            sudo apt intall python3-pip
+            sudo pip3 install awsebcli --upgrade
+        -run cd ./app
+        -run aws s3 sync ./app s3://varminex.com
+   
+   workflows:
+    version:2
+    execute_bulk:
+        jobs:
+            -build_deploy
