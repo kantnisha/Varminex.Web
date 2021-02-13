@@ -4,7 +4,7 @@ jobs:
     image:ubuntu-2004:202010-01
    steps:
     - checkout
-    - run
+    - run:
         -name: Copy code
         -command: |
             sudo apt-get update
